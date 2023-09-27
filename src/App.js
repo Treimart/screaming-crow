@@ -1,26 +1,20 @@
-import logo from "./logo.svg"
+import { useState } from "react"
 import "./App.css"
-import Hello from "./components/Hello"
-import Maths from "./components/Maths"
-import About from "./components/About"
-import Info from "./components/Info"
+import Toggle from "./components/Toggle"
+import Show from "./components/Show"
+import MyForm from "./components/MyForm"
 
 function App() {
+  const [show, setShow] = useState(true)
+
+  const toggleShow = () => setShow(previousShow => !previousShow)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <Hello name="Märten" /> */}
-        <About />
-        <Info
-          name="Märten"
-          school="TLÜ"
-          group="Informaatika"
-          scemester={2}
-        />
-        <Maths />
-        <Maths />
-        <Maths />
-      </header>
+    <div className="Main">
+      <h1>Märten</h1>
+      <MyForm />
+      <Show show={show} />
+      <Toggle toggleShow={toggleShow} />
     </div>
   )
 }
