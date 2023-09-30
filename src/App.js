@@ -20,7 +20,7 @@ function App() {
     "mathematics",
     "pedagogy",
     "optimization",
-    "level and UI desingn"
+    "level and UI design"
   ]
 
   return (

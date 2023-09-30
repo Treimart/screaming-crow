@@ -1,4 +1,6 @@
 .Main {
+  width: min(65ch, 100% - 2.5rem);
+  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
