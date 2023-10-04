@@ -15,7 +15,12 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route
       path="/"
-      element={<App />}
+      element={
+        <>
+          <h1>Pealkiri</h1>
+          <Outlet />
+        </>
+      }
     >
       <Route
         path="contact"
