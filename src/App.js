@@ -1,5 +1,7 @@
 import React from "react"
 import "./App.css"
+import { Outlet } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import Button from "@mui/material/Button"
 import AppBar from "@mui/material/AppBar"
 import Toolbar from "@mui/material/Toolbar"
@@ -35,6 +37,7 @@ function App() {
             Märten Treier
           </Typography>
           <Button color="inherit">Home</Button>
+          <Button color="inherit">Tools</Button>
           <Button color="inherit">About</Button>
         </Toolbar>
       </AppBar>
@@ -48,6 +51,7 @@ function App() {
         <h2>Contact us!</h2>
         <Contact />
         <FetchComment />
+        <Outlet />
       </div>
     </div>
   )
