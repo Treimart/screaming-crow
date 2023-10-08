@@ -12,10 +12,11 @@ exports.read = (req, res) => {
 }
 
 exports.update = (req, res) => {
-  const { index, newName } = req.params
+  const { name } = req.params
 
-  cats[index] = newName
-  res.send(newName)
+  const index = cats.indexOf(name)
+  cats[index] = `${name}*`
+  res.send(`${name}*`)
 }
 
 exports.delete = (req, res) => {
