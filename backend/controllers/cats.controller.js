@@ -11,6 +11,16 @@ exports.read = (req, res) => {
   res.send(cats)
 }
 
-exports.update = (req, res) => {}
+exports.update = (req, res) => {
+  const { index, newName } = req.params
 
-exports.delete = (req, res) => {}
+  cats[index] = newName
+  res.send(newName)
+}
+
+exports.delete = (req, res) => {
+  const { index } = req.params
+
+  const deletedCat = cats.splice(index, 1)
+  res.send(deletedCat[0])
+}
