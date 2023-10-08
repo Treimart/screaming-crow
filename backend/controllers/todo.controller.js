@@ -15,7 +15,7 @@ let todo = [
 ]
 
 exports.create = (req, res) => {
-  const { title, priority } = req.params
+  const { title, priority } = req.body
 
   const newTodo = {
     id: uuid.v4(),
@@ -31,5 +31,27 @@ exports.create = (req, res) => {
 }
 
 exports.read = (req, res) => {
-  res.send(todo)
+  const activeTodos = todo.filter(item => item.deleted === false)
+  res.send(activeTodos)
+}
+
+exports.update = (req, res) => {
+  const { id, title, priority } = req.body
+
+  const todoIndex = todo.findIndex(item => item.id === id)
+
+  todo[todoIndex].title = title
+  todo[todoIndex].priority = parseInt(priority, 10)
+  todo[todoIndex].updated = Date.now
+
+  res.send(todo[todoIndex])
+}
+
+exports.delete = (req, res) => {
+  const { id } = req.body
+
+  const todoIndex = todo.findIndex(item => item.id === id)
+
+  todo[todoIndex].deleted = true
+  res.send(todo[todoIndex])
 }

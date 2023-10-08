@@ -6,8 +6,8 @@ const todoController = require("../controllers/todo.controller")
 
 // /cats/ Get endpoint level middleware
 router.get("/", todoController.read)
-router.post("/:title/:priority", todoController.create)
-//router.put("/:name", todoController.update)
-//router.delete("/:name", todoController.delete)
+router.post("/", todoController.create)
+router.put("/", todoController.update)
+router.delete("/", todoController.delete)
 
 module.exports = router
